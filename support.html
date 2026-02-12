@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Support — Joker Cube</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    color-scheme: dark;
+    --bg: #0b1912;
+    --bg-2: #10261a;
+    --card: #12281b;
+    --card-2: #162f21;
+    --text: #e8f0ea;
+    --muted: #b7c4b8;
+    --accent: #f6d26a;
+    --accent-2: #64c27b;
+    --stroke: rgba(255, 255, 255, 0.08);
+    --shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: "Work Sans", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+    background: radial-gradient(1200px circle at 15% 0%, #1d3d2b 0%, #0b1912 55%), linear-gradient(180deg, #0b1912, #08110c 100%);
+    color: var(--text);
+    padding: 0;
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  a {
+    color: var(--accent-2);
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #86e1a0;
+  }
+
+  .page {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 32px 24px 84px;
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    color: var(--muted);
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .nav a {
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+    gap: 28px;
+    padding: 32px;
+    border-radius: 24px;
+    background: linear-gradient(135deg, #162f21, #0f2016 65%);
+    border: 1px solid var(--stroke);
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::after {
+    content: "";
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    right: -180px;
+    top: -220px;
+    background: radial-gradient(circle, rgba(246, 210, 106, 0.2), transparent 70%);
+  }
+
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #2a1c00;
+    background: rgba(246, 210, 106, 0.95);
+    font-weight: 600;
+  }
+
+  h1 {
+    font-family: "Fraunces", "Times New Roman", serif;
+    font-size: 36px;
+    margin: 12px 0 12px;
+  }
+
+  .hero p {
+    color: var(--muted);
+    margin: 0 0 20px;
+    font-size: 16px;
+  }
+
+  .cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+
+  .cta {
+    padding: 12px 18px;
+    border-radius: 12px;
+    border: 1px solid var(--stroke);
+    background: var(--card);
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .cta.primary {
+    background: var(--accent);
+    color: #2a1c00;
+    border-color: rgba(246, 210, 106, 0.6);
+  }
+
+  .cta.ghost {
+    background: transparent;
+  }
+
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 18px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .hero-card {
+    background: rgba(14, 28, 20, 0.8);
+    border: 1px solid var(--stroke);
+    border-radius: 20px;
+    padding: 22px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-card h3 {
+    margin: 0 0 6px;
+    font-size: 18px;
+  }
+
+  .hero-card p {
+    margin: 0 0 16px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+
+  .quick-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 10px;
+  }
+
+  .quick-links a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 12px;
+    border-radius: 12px;
+    border: 1px solid var(--stroke);
+    background: rgba(18, 40, 27, 0.7);
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  .quick-links a span {
+    color: var(--muted);
+    font-size: 12px;
+  }
+
+  .section {
+    margin-top: 36px;
+  }
+
+  .section h2 {
+    font-family: "Fraunces", "Times New Roman", serif;
+    font-size: 26px;
+    margin-bottom: 16px;
+  }
+
+  .support-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--stroke);
+    border-radius: 18px;
+    padding: 18px;
+  }
+
+  .card h3 {
+    margin: 0 0 8px;
+    font-size: 18px;
+  }
+
+  .card p,
+  .card li {
+    color: var(--muted);
+    font-size: 14px;
+  }
+
+  .card ul {
+    padding-left: 18px;
+    margin: 10px 0 0;
+  }
+
+  .faq-grid {
+    display: grid;
+    gap: 12px;
+  }
+
+  details {
+    background: var(--card);
+    border: 1px solid var(--stroke);
+    border-radius: 16px;
+    padding: 14px 16px;
+  }
+
+  summary {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 15px;
+  }
+
+  details p {
+    margin: 10px 0 0;
+    color: var(--muted);
+    font-size: 14px;
+  }
+
+  .contact-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: 16px;
+    align-items: center;
+  }
+
+  .contact-card ul {
+    margin: 10px 0 0;
+  }
+
+  .footer {
+    margin-top: 36px;
+    padding-top: 24px;
+    border-top: 1px solid var(--stroke);
+    color: #778679;
+    font-size: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 18px;
+    justify-content: space-between;
+  }
+
+  @media (max-width: 900px) {
+    .hero {
+      grid-template-columns: 1fr;
+    }
+
+    h1 {
+      font-size: 30px;
+    }
+
+    .contact-card {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+    <nav class="nav">
+      <a href="index.html">&larr; Back to Legal</a>
+      <span>Support</span>
+    </nav>
+
+    <header class="hero">
+      <div class="hero-text">
+        <span class="pill">Joker Cube Support</span>
+        <h1>Fast answers for gameplay, subscriptions, and troubleshooting.</h1>
+        <p>Find the most common answers below or reach out directly. We usually respond within 1–2 business days.</p>
+        <div class="cta-row">
+          <a class="cta primary" href="mailto:jokercube@icloud.com">Email Support</a>
+          <a class="cta ghost" href="#faq">Browse FAQs</a>
+        </div>
+        <div class="meta">
+          <span>Support email: jokercube@icloud.com</span>
+          <span>Last updated: February 11, 2026</span>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <h3>Quick links</h3>
+        <p>Manage subscriptions, refunds, or review legal policies.</p>
+        <ul class="quick-links">
+          <li><a href="https://apps.apple.com/account/subscriptions">Manage Subscription <span>Apple ID</span></a></li>
+          <li><a href="https://reportaproblem.apple.com">Request a Refund <span>Apple</span></a></li>
+          <li><a href="privacy.html">Privacy Policy <span>Joker Cube</span></a></li>
+          <li><a href="terms.html">Terms of Service <span>Joker Cube</span></a></li>
+        </ul>
+      </div>
+    </header>
+
+    <section class="section">
+      <h2>Quick help</h2>
+      <div class="support-grid">
+        <div class="card">
+          <h3>Gameplay basics</h3>
+          <p>Build a 5-card poker hand from the 9 cards on your face of the cube.</p>
+          <ul>
+            <li><strong>Hold</strong> cards you want to keep.</li>
+            <li><strong>Stand</strong> to score your hand.</li>
+            <li><strong>New Hand</strong> deals a fresh set of cards.</li>
+            <li><strong>Max Bet</strong> wagers 100 credits instead of 5.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Subscriptions</h3>
+          <p>Joker Cube uses Apple subscriptions for billing and access.</p>
+          <ul>
+            <li>Manage or cancel in Apple ID Subscriptions.</li>
+            <li>Use <strong>Restore</strong> if access isn't detected.</li>
+            <li>Refunds are handled by Apple.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Troubleshooting</h3>
+          <p>Most issues can be resolved quickly with a reset.</p>
+          <ul>
+            <li>Force-quit and relaunch the app.</li>
+            <li>Confirm you're signed in to the correct Apple ID.</li>
+            <li>Install the latest iOS updates.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Performance</h3>
+          <p>For smoother gameplay, keep background apps to a minimum.</p>
+          <ul>
+            <li>Close heavy apps before playing.</li>
+            <li>Restart your device if animations lag.</li>
+            <li>Let us know your device model if issues persist.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <h2>Frequently asked questions</h2>
+      <div class="faq-grid">
+        <details open>
+          <summary>My subscription isn't recognized. What should I do?</summary>
+          <p>Confirm you are signed in with the same Apple ID used to purchase. Tap “Restore” on the paywall, then relaunch the app.</p>
+        </details>
+        <details>
+          <summary>How do I cancel my subscription?</summary>
+          <p>Subscriptions are managed by Apple. Visit <a href="https://apps.apple.com/account/subscriptions">apps.apple.com/account/subscriptions</a> and choose Joker Cube to cancel.</p>
+        </details>
+        <details>
+          <summary>Where is my free trial information stored?</summary>
+          <p>Your free trial start date is stored securely in the device Keychain and never leaves your device.</p>
+        </details>
+        <details>
+          <summary>Can I request a refund?</summary>
+          <p>Yes. Refunds are handled by Apple. Visit <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a> to submit a request.</p>
+        </details>
+        <details>
+          <summary>What details should I include in a support email?</summary>
+          <p>Please include your device model, iOS version, a brief description of the issue, and screenshots if possible.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="card contact-card">
+        <div>
+          <h3>Contact support</h3>
+          <p>Email us any time and we’ll respond as quickly as possible.</p>
+          <p><strong>Email:</strong> <a href="mailto:jokercube@icloud.com">jokercube@icloud.com</a></p>
+        </div>
+        <div>
+          <h3>Before you reach out</h3>
+          <ul>
+            <li>Device model (ex: iPhone 13 Pro)</li>
+            <li>iOS version</li>
+            <li>Steps to reproduce the issue</li>
+            <li>Screenshot or short screen recording</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="card">
+        <h3>Privacy and data</h3>
+        <p>We do not collect personal information. Game progress and trial status stay on your device. Read the <a href="privacy.html">Privacy Policy</a> for details.</p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span>Joker Cube Support</span>
+      <span>Contact: jokercube@icloud.com</span>
+      <span>© 2026 Lonnie Jordan</span>
+    </footer>
+  </div>
+</body>
+</html>
